@@ -69,15 +69,18 @@ project "Electro"
 
 	filter "configurations:Debug"
 		defines "EN_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 		
 
 	filter "configurations:Release"
 		defines "EL_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "EL_DIST"
+		buildoptions "/MD"
 		optimize "On"
 	
 
@@ -113,7 +116,6 @@ project "Sandbox"
 		staticruntime "On"
 		systemversion "latest"
 
-
 		defines
 		{
 			"EL_PLATFORM_WINDOWS"
@@ -123,13 +125,16 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "EL_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 		
 
 	filter "configurations:Release"
 		defines "EL_RELEASE"
+		buildoptions "/MDd"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "EL_DIST"
+		buildoptions "/MDd"
 		optimize "On"

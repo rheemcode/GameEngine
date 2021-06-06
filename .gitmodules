@@ -1,7 +1,7 @@
 [submodule "Electro/vendor/spdlog"]
-	path = Engine/vendor/spdlog
+	path = Electro/vendor/spdlog
 	url = https://github.com/gabime/spdlog
 
 [submodule "Electro/vendor/GLFW"]
-	path = Engine/vendor/GLFW
+	path = Electro/vendor/GLFW
 	url = https://github.com/TheCherno/glfw

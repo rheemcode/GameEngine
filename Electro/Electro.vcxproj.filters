@@ -37,6 +37,12 @@
     <ClInclude Include="src\Electro\Events\MouseEvent.h">
       <Filter>Electro\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Electro\Layer.h">
+      <Filter>Electro</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Electro\LayerStack.h">
+      <Filter>Electro</Filter>
+    </ClInclude>
     <ClInclude Include="src\Electro\Log.h">
       <Filter>Electro</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Electro\Application.cpp">
+      <Filter>Electro</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Electro\Layer.cpp">
+      <Filter>Electro</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Electro\LayerStack.cpp">
       <Filter>Electro</Filter>
     </ClCompile>
     <ClCompile Include="src\Electro\Log.cpp">
