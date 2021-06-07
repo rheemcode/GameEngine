@@ -23,6 +23,7 @@ public:
 	SandBox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverLay(new Electro::ImGuiLayer());
 	}
 
 	~SandBox()

@@ -5,3 +5,8 @@
 [submodule "Electro/vendor/GLFW"]
 	path = Electro/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+
+
+[submodule "Electro/vendor/imgui"]
+	path = Electro/vendor/imgui
+	url = https://github.com/TheCherno/imgui

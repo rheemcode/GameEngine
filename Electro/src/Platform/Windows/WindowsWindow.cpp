@@ -4,6 +4,7 @@
 #include <Electro/Events/ApplicationEvent.h>
 #include <Electro/Events/KeyEvent.h>
 #include <Electro/Events/MouseEvent.h>
+#include <glad/glad.h>
 
 namespace Electro
 {
@@ -40,16 +41,17 @@ namespace Electro
 		if (!s_GLFWInitialized)
 		{
 			int success = glfwInit();
-			EL_CORE_ASSERT(success, "Could not Initialize GLFW!");
-			glfwSetErrorCallback([](int errorCode, const char* description)
-				{
-
-				});
+			EL_CORE_ASSERT(success, "Could not Initialize GLFW!");	
+			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+
+		int success = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		EL_CORE_ASSERT(success, "Failed to initialize Glad");
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 

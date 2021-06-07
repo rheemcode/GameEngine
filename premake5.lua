@@ -13,8 +13,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Electro/vendor/GLFW/include"
+IncludeDir["Glad"] = "Electro/vendor/Glad/include"
+IncludeDir["ImGui"] = "Electro/vendor/imgui"
 
 include "Electro/vendor/GLFW"
+include "Electro/vendor/Glad"
+include "Electro/vendor/imgui"
 
 project "Electro"
 	
@@ -39,13 +43,17 @@ project "Electro"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}",
 	}
 
 
 	links
 	{
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -59,7 +67,8 @@ project "Electro"
 		defines
 		{
 			"EL_PLATFORM_WINDOWS",
-			"EL_BUILD_DLL"
+			"EL_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

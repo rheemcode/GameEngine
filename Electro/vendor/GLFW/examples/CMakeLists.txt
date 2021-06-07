@@ -23,12 +23,12 @@ elseif (APPLE)
         MACOSX_PACKAGE_LOCATION "Resources")
 endif()
 
-set(GLAD_GL "${GLFW_SOURCE_DIR}/deps/glad/gl.h"
-            "${GLFW_SOURCE_DIR}/deps/glad_gl.c")
-set(GETOPT "${GLFW_SOURCE_DIR}/deps/getopt.h"
-           "${GLFW_SOURCE_DIR}/deps/getopt.c")
-set(TINYCTHREAD "${GLFW_SOURCE_DIR}/deps/tinycthread.h"
-                "${GLFW_SOURCE_DIR}/deps/tinycthread.c")
+set(GLAD_GL "../deps/glad/gl.h"
+            "../deps/glad_gl.c")
+set(GETOPT "../deps/getopt.h"
+           "../deps/getopt.c")
+set(TINYCTHREAD "../deps/tinycthread.h"
+                "../deps/tinycthread.c")
 
 add_executable(boing WIN32 MACOSX_BUNDLE boing.c ${ICON} ${GLAD_GL})
 add_executable(gears WIN32 MACOSX_BUNDLE gears.c ${ICON} ${GLAD_GL})

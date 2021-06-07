@@ -1,16 +1,21 @@
 #include "elpch.h"
 #include "Application.h"
 #include "Log.h"
-#include <GLFW/glfw3.h>
-#include <Electro/Layer.h>
+#include "glad/glad.h"
+#include "GLFW/glfw3.h"
+#include "Electro/Layer.h"
 
 namespace Electro
 {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
+	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
+		EL_CORE_ASSERT(!s_Instance, "Application already exists");
+		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallbackFn(BIND_EVENT_FN(OnEvent));
 	}
@@ -22,11 +27,13 @@ namespace Electro
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverLay(Layer* overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
+		overlay->OnAttach();
 	}
 
 	void Application::Run()
@@ -34,6 +41,7 @@ namespace Electro
 
 		while (m_Running)
 		{
+			
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 			m_Window->OnUpdate();
