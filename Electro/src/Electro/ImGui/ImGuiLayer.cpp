@@ -22,6 +22,11 @@ namespace Electro
         ImGui_ImplOpenGL3_NewFrame();
         ImGui::NewFrame();
 
+
+
+        ImGui::Text(std::to_string(io.DeltaTime).c_str());
+
+
         static bool show = true;
         ImGui::ShowDemoWindow(&show);
 
@@ -32,12 +37,12 @@ namespace Electro
 	void ImGuiLayer::OnAttach()
 	{
 		ImGui::CreateContext();
-		ImGui::StyleColorsDark();
 
 		ImGuiIO& io = ImGui::GetIO();
 		io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
 		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
+		ImGui::StyleColorsDark();
         // Keyboard mapping. ImGui will use those indices to peek into the io.KeysDown[] array.
         io.KeyMap[ImGuiKey_Tab] = GLFW_KEY_TAB;
         io.KeyMap[ImGuiKey_LeftArrow] = GLFW_KEY_LEFT;
@@ -63,7 +68,7 @@ namespace Electro
         io.KeyMap[ImGuiKey_Z] = GLFW_KEY_Z;
         io.KeyMap[ImGuiKey_Z] = GLFW_KEY_Z;
 
-        ImGui_ImplOpenGL3_Init("#version 410");
+        ImGui_ImplOpenGL3_Init();
 	}
 
 	void ImGuiLayer::OnDetach()
