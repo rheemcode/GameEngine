@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>elpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>EL_PLATFORM_WINDOWS;EL_BUILD_DLL;GLFW_INCLUDE_NONE;EN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;src\Electro;src\Electro\Core;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -103,7 +103,7 @@
       <PrecompiledHeaderFile>elpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>EL_PLATFORM_WINDOWS;EL_BUILD_DLL;GLFW_INCLUDE_NONE;EL_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;src\Electro;src\Electro\Core;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@
       <PrecompiledHeaderFile>elpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>EL_PLATFORM_WINDOWS;EL_BUILD_DLL;GLFW_INCLUDE_NONE;EL_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;src\Electro;src\Electro\Core;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -152,29 +152,34 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Electro\Core\OS\KeyCode.h" />
+    <ClInclude Include="src\Electro\Core\OS\Input.h" />
+    <ClInclude Include="src\Electro\Core\OS\Mouse.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Electro.h" />
-    <ClInclude Include="src\Electro\Application.h" />
-    <ClInclude Include="src\Electro\Core.h" />
-    <ClInclude Include="src\Electro\EntryPoint.h" />
+    <ClInclude Include="src\Electro\Core\Application.h" />
+    <ClInclude Include="src\Electro\Core\Core.h" />
+    <ClInclude Include="src\Electro\Core\EntryPoint.h" />
     <ClInclude Include="src\Electro\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Electro\Events\Event.h" />
     <ClInclude Include="src\Electro\Events\KeyEvent.h" />
     <ClInclude Include="src\Electro\Events\MouseEvent.h" />
     <ClInclude Include="src\Electro\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Electro\Layer.h" />
-    <ClInclude Include="src\Electro\LayerStack.h" />
+    <ClInclude Include="src\Electro\Core\Layer.h" />
+    <ClInclude Include="src\Electro\Core\LayerStack.h" />
     <ClInclude Include="src\Electro\Log.h" />
-    <ClInclude Include="src\Electro\Window.h" />
+    <ClInclude Include="src\Electro\Core\OS\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\elpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Electro\Application.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\Electro\Core\Application.cpp" />
     <ClCompile Include="src\Electro\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Electro\Layer.cpp" />
-    <ClCompile Include="src\Electro\LayerStack.cpp" />
-    <ClCompile Include="src\Electro\Log.cpp" />
+    <ClCompile Include="src\Electro\Core\Layer.cpp" />
+    <ClCompile Include="src\Electro\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Electro\Core\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\elpch.cpp">

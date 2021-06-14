@@ -1,10 +1,10 @@
 #include "elpch.h"
 #include "WindowsWindow.h"
-#include <Electro/Log.h>
-#include <Electro/Events/ApplicationEvent.h>
-#include <Electro/Events/KeyEvent.h>
-#include <Electro/Events/MouseEvent.h>
-#include <glad/glad.h>
+#include "Electro/Log.h"
+#include "Events/ApplicationEvent.h"
+#include "Events/KeyEvent.h"
+#include "Events/MouseEvent.h"
+#include "glad/glad.h"
 
 namespace Electro
 {
@@ -49,12 +49,14 @@ namespace Electro
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
 
+		
+
 		int success = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		EL_CORE_ASSERT(success, "Failed to initialize Glad");
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
-
+		glViewport(0, 0, props.Width, props.Height);
 		// Set GLFW callbacks
 
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)

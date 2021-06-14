@@ -8,12 +8,12 @@ public:
 
 	void OnUpdate() override
 	{
-		EL_INFO("ExampleLayer: Update");
+	//	EL_INFO("ExampleLayer: Update");
 	}
 
 	void OnEvent(Electro::Event& e) override
 	{
-		EL_TRACE("{0}", e);
+		//EL_TRACE("{0}", e);
 	}
 };
 

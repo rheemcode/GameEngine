@@ -111,7 +111,7 @@ static void ImGui_ImplGlfw_SetClipboardText(void* user_data, const char* text)
 
 void ImGui_ImplGlfw_MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 {
-    if (g_PrevUserCallbackMousebutton != NULL && window == g_Window)
+    if (g_PrevUserCallbackMousebutton != NULL &&    window == g_Window)
         g_PrevUserCallbackMousebutton(window, button, action, mods);
 
     if (action == GLFW_PRESS && button >= 0 && button < IM_ARRAYSIZE(g_MouseJustPressed))

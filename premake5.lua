@@ -42,6 +42,8 @@ project "Electro"
 	includedirs
 	{
 		"%{prj.name}/src",
+		"%{prj.name}/src/Electro",
+		"%{prj.name}/src/Electro/Core",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",

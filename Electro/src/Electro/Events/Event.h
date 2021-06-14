@@ -1,7 +1,7 @@
 #pragma once
 
 #include "spdlog/fmt/ostr.h" 
-#include "Electro\Core.h"
+#include "Core/Core.h"
 
 
 namespace Electro
@@ -79,7 +79,7 @@ namespace Electro
 			return false;
 		}
 
-		template<typename T>
+		/*template<typename T>
 		bool Dispatch(std::function<bool(T&)> func)
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
@@ -89,7 +89,7 @@ namespace Electro
 			}
 
 			return false;
-		}
+		}*/
 		
 	friend inline std::ostream& operator<<(std::ostream& os, const Event& e)
 	{

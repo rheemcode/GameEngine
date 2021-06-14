@@ -3,7 +3,7 @@
 #include "Log.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
-#include "Electro/Layer.h"
+#include "Core/Layer.h"
 
 namespace Electro
 {
@@ -17,6 +17,7 @@ namespace Electro
 		EL_CORE_ASSERT(!s_Instance, "Application already exists");
 		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
+
 		m_Window->SetEventCallbackFn(BIND_EVENT_FN(OnEvent));
 	}
 
@@ -49,6 +50,7 @@ namespace Electro
 			{
 				layer->OnUpdate();
 			}
+
 			m_Window->OnUpdate();
 		}
 	}
@@ -56,7 +58,9 @@ namespace Electro
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+		auto fn = std::bind(&Application::OnWindowClose, this, std::placeholders::_1);
+		
+		dispatcher.Dispatch<WindowCloseEvent>(fn);
 		
 		EL_CORE_TRACE("{0}", e);
 
