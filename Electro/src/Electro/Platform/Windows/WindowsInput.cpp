@@ -35,7 +35,7 @@ namespace Electro
 		double mouseX, mouseY;
 		glfwGetCursorPos(window, &mouseX, &mouseY);
 
-		return { mouseX, mouseY };
+		return { float(mouseX), float(mouseY) };
 	}
 
 	float Electro::WindowsInput::GetMouseXImpl()

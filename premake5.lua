@@ -23,9 +23,10 @@ include "Electro/vendor/imgui"
 project "Electro"
 	
 	location "Electro"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-
+	cppdialect "C++17"
+	staticruntime "on"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	
@@ -61,8 +62,6 @@ project "Electro"
 
 	filter "system:windows"
 
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 
@@ -73,25 +72,20 @@ project "Electro"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{copy} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-		}
-
 	filter "configurations:Debug"
 		defines "EN_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 		
 
 	filter "configurations:Release"
 		defines "EL_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "EL_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 	
 
@@ -99,7 +93,8 @@ project "Sandbox"
 	location "SandBox"
 	kind "ConsoleApp"
 	language "C++"
-
+	cppdialect "C++17"
+	staticruntime "On"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
@@ -113,7 +108,9 @@ project "Sandbox"
 	includedirs
 	{
 		"Electro/vendor/spdlog/include",
-		"Electro/src"
+		"Electro/vendor/imgui",
+		"Electro/src",
+		"Electro/src/Electro"
 	}
 
 	links
@@ -123,8 +120,6 @@ project "Sandbox"
 
 	filter "system:windows"
 
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -136,13 +131,11 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "EL_DEBUG"
-		buildoptions "/MDd"
 		symbols "On"
 		
 
 	filter "configurations:Release"
 		defines "EL_RELEASE"
-		buildoptions "/MDd"
 		optimize "On"
 
 	filter "configurations:Dist"

@@ -8,9 +8,7 @@ namespace Electro
 	namespace Key
 	{
 		enum : KeyCode
-		{
-			UNKNOWN         =   -1,
-				/* Printable keys */
+		{				/* Printable keys */
 			SPACE			=		32,
 			APOSTROPHE		=		39 , /* ' */
 			COMMA			=       44,  /* , */

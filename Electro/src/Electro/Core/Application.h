@@ -6,6 +6,7 @@
 #include "Core/OS/Window.h"
 #include "Layer.h"
 #include "LayerStack.h"
+#include "ImGui/ImGuiLayer.h"
 
 namespace Electro
 {
@@ -19,7 +20,7 @@ namespace Electro
 		
 		void OnEvent(Event& e);
 		void PushLayer(Layer* layer);
-		void PushOverLay(Layer* layer);
+		void PushOverlay(Layer* layer);
 
 		inline static Application& Get() { return *s_Instance;  }
 		inline Window& GetWindow()  { return *m_Window; }
@@ -28,6 +29,7 @@ namespace Electro
 
 		bool OnWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

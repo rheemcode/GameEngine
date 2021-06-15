@@ -15,9 +15,4 @@ int main(int argc, char** argv)
 	delete app;
 }
 
-int WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow)
-{
-	return 0;
-}
-
 #endif

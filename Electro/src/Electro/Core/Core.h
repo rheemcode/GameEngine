@@ -2,10 +2,14 @@
 
 
 #ifdef EL_PLATFORM_WINDOWS
-	#ifdef EL_BUILD_DLL
-		#define ELECTRO_API __declspec(dllexport)
+	#ifdef EL_DYNAMIC_LINK
+		#ifdef EL_BUILD_DLL
+			#define ELECTRO_API __declspec(dllexport)
+		#else
+			#define ELECTRO_API __declspec(dllimport)
+		#endif
 	#else
-		#define ELECTRO_API __declspec(dllimport)
+		#define ELECTRO_API 
 	#endif
 #endif // EL_PLATFORM_WINDOWS
 

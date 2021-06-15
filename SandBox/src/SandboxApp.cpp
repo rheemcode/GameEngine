@@ -1,4 +1,5 @@
 #include <Electro.h>
+#include "imgui.h"
 
 class ExampleLayer : public Electro::Layer
 {
@@ -9,6 +10,13 @@ public:
 	void OnUpdate() override
 	{
 	//	EL_INFO("ExampleLayer: Update");
+	}
+	
+	void OnImGuiRender() override
+	{
+		ImGui::Begin("Im");
+		ImGui::Text("Hello Wordl");
+		ImGui::End();
 	}
 
 	void OnEvent(Electro::Event& e) override
@@ -23,7 +31,6 @@ public:
 	SandBox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverLay(new Electro::ImGuiLayer());
 	}
 
 	~SandBox()

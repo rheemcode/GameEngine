@@ -4,26 +4,53 @@
     <Filter Include="Electro">
       <UniqueIdentifier>{53127BC6-BFF1-F961-C809-8538346860C3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Electro\Core">
+      <UniqueIdentifier>{8BA24BCD-7705-DB71-208B-13280CCDA6F4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Electro\Core\OS">
+      <UniqueIdentifier>{1C6D8D26-88F8-FAEA-9109-7EDFFD1357EB}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Electro\Events">
       <UniqueIdentifier>{D782E053-C350-D459-ACE4-44809851B0BE}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platform">
-      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    <Filter Include="Electro\ImGui">
+      <UniqueIdentifier>{BDB92A77-297A-A6AD-F2B4-EF2A5E34EB89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platform\Windows">
-      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    <Filter Include="Electro\Platform">
+      <UniqueIdentifier>{079C2AEA-F394-493C-1CC7-2EC1081F2948}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Electro\Platform\Windows">
+      <UniqueIdentifier>{415D7BFE-2D82-CA7E-56CD-AF0E4251C99C}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Electro.h" />
     <ClInclude Include="src\Electro\Core\Application.h">
-      <Filter>Electro</Filter>
+      <Filter>Electro\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Electro\Core\Core.h">
-      <Filter>Electro</Filter>
+      <Filter>Electro\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Electro\Core\EntryPoint.h">
-      <Filter>Electro</Filter>
+      <Filter>Electro\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Electro\Core\Layer.h">
+      <Filter>Electro\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Electro\Core\LayerStack.h">
+      <Filter>Electro\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Electro\Core\OS\Input.h">
+      <Filter>Electro\Core\OS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Electro\Core\OS\KeyCode.h">
+      <Filter>Electro\Core\OS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Electro\Core\OS\Mouse.h">
+      <Filter>Electro\Core\OS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Electro\Core\OS\Window.h">
+      <Filter>Electro\Core\OS</Filter>
     </ClInclude>
     <ClInclude Include="src\Electro\Events\ApplicationEvent.h">
       <Filter>Electro\Events</Filter>
@@ -37,48 +64,45 @@
     <ClInclude Include="src\Electro\Events\MouseEvent.h">
       <Filter>Electro\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Electro\Core\Layer.h">
-      <Filter>Electro</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Electro\Core\LayerStack.h">
-      <Filter>Electro</Filter>
+    <ClInclude Include="src\Electro\ImGui\ImGuiLayer.h">
+      <Filter>Electro\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\Electro\Log.h">
       <Filter>Electro</Filter>
     </ClInclude>
-    <ClInclude Include="src\Electro\Core\OS\Window.h">
-      <Filter>Electro</Filter>
+    <ClInclude Include="src\Electro\Platform\Windows\WindowsInput.h">
+      <Filter>Electro\Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
-      <Filter>Platform\Windows</Filter>
+    <ClInclude Include="src\Electro\Platform\Windows\WindowsWindow.h">
+      <Filter>Electro\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\elpch.h" />
-    <ClInclude Include="src\Electro\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
-    <ClInclude Include="src\Electro\Core\OS\Input.h" />
-    <ClInclude Include="src\Electro\Core\OS\KeyCode.h" />
-    <ClInclude Include="src\Electro\Core\OS\Mouse.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Electro\Core\Application.cpp">
-      <Filter>Electro</Filter>
+      <Filter>Electro\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Electro\Core\Layer.cpp">
-      <Filter>Electro</Filter>
+      <Filter>Electro\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Electro\Core\LayerStack.cpp">
-      <Filter>Electro</Filter>
+      <Filter>Electro\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Electro\Core\Log.cpp">
-      <Filter>Electro</Filter>
+      <Filter>Electro\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
-      <Filter>Platform\Windows</Filter>
+    <ClCompile Include="src\Electro\ImGui\ImGuiBuild.cpp">
+      <Filter>Electro\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Electro\ImGui\ImGuiLayer.cpp">
+      <Filter>Electro\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Electro\Platform\Windows\WindowsInput.cpp">
+      <Filter>Electro\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Electro\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Electro\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\elpch.cpp" />
-    <ClCompile Include="src\Electro\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>

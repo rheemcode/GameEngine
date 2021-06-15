@@ -17,8 +17,9 @@ namespace Electro
 		EL_CORE_ASSERT(!s_Instance, "Application already exists");
 		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
-
+		m_ImGuiLayer = new ImGuiLayer();
 		m_Window->SetEventCallbackFn(BIND_EVENT_FN(OnEvent));
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	Application::~Application()
@@ -31,7 +32,7 @@ namespace Electro
 		layer->OnAttach();
 	}
 
-	void Application::PushOverLay(Layer* overlay)
+	void Application::PushOverlay(Layer* overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
 		overlay->OnAttach();
@@ -45,13 +46,18 @@ namespace Electro
 			
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
-
-			for (Layer* layer : m_LayerStack)
-			{
-				layer->OnUpdate();
-			}
-
 			m_Window->OnUpdate();
+			
+			for (auto layer : m_LayerStack)
+				layer->OnUpdate();
+
+			m_ImGuiLayer->Begin();
+
+			for (auto layer : m_LayerStack)
+				layer->OnImGuiRender();
+
+			m_ImGuiLayer->End();
+			m_Window->SwapBuffers();
 		}
 	}
 
@@ -64,13 +70,6 @@ namespace Electro
 		
 		EL_CORE_TRACE("{0}", e);
 
-		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
-		{
-			(*--it)->OnEvent(e);
-			if (e.Handled)
-				break;
-
-		}
 	}
 	
 	bool Application::OnWindowClose(WindowCloseEvent& e)

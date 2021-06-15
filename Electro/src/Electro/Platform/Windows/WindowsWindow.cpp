@@ -157,6 +157,11 @@ namespace Electro
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
+
+	}
+
+	void WindowsWindow::SwapBuffers()
+	{
 		glfwSwapBuffers(m_Window);
 	}
 
