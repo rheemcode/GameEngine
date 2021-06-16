@@ -24,6 +24,7 @@ namespace Electro
 
 	Application::~Application()
 	{
+		s_Instance = nullptr;
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -57,7 +58,6 @@ namespace Electro
 				layer->OnImGuiRender();
 
 			m_ImGuiLayer->End();
-			m_Window->SwapBuffers();
 		}
 	}
 

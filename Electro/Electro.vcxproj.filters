@@ -77,6 +77,10 @@
       <Filter>Electro\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\elpch.h" />
+    <ClInclude Include="src\Electro\Drivers\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Electro\Platform\Windows\WindowsOpenGLContext.h" />
+    <ClInclude Include="src\Electro\Servers\Renderer\Renderer.h" />
+    <ClInclude Include="src\Electro\Drivers\OpenGL\OpenGLRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Electro\Core\Application.cpp">
@@ -104,5 +108,9 @@
       <Filter>Electro\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\elpch.cpp" />
+    <ClCompile Include="src\Electro\Drivers\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Electro\Platform\Windows\WindowsOpenGLContext.cpp" />
+    <ClCompile Include="src\Electro\Servers\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Electro\Drivers\OpenGL\OpenGLRenderer.cpp" />
   </ItemGroup>
 </Project>

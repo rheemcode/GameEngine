@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Core/OS/Window.h"
-
+#include "Drivers/OpenGL/OpenGLContext.h"
 #include <GLFW/glfw3.h>
 
 namespace Electro
@@ -13,7 +13,6 @@ namespace Electro
 		virtual ~WindowsWindow();
 
 		void OnUpdate() override;
-		void SwapBuffers() override;
 
 		inline unsigned int GetWidth() const override { return m_Data.Width;  }
 		inline unsigned int GetHeight() const override { return m_Data.Height;  }
@@ -31,6 +30,7 @@ namespace Electro
 
 	private:
 		GLFWwindow* m_Window;
+		OpenGLContext* m_Context;
 
 		struct WindowData
 		{

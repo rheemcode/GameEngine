@@ -4,7 +4,7 @@
 #include "Events/ApplicationEvent.h"
 #include "Events/KeyEvent.h"
 #include "Events/MouseEvent.h"
-#include "glad/glad.h"
+#include "Platform/Windows/WindowsOpenGLContext.h"
 
 namespace Electro
 {
@@ -36,6 +36,8 @@ namespace Electro
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
+		m_Context = new WindowsOpenGLContext();
+
 		EL_CORE_TRACE("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
 		if (!s_GLFWInitialized)
@@ -47,16 +49,13 @@ namespace Electro
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
-
 		
-
-		int success = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		EL_CORE_ASSERT(success, "Failed to initialize Glad");
+		m_Context->CreateContext(m_Window);
+		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
-		glViewport(0, 0, props.Width, props.Height);
+		//glViewport(0, 0, props.Width, props.Height);
 		// Set GLFW callbacks
 
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
@@ -157,12 +156,8 @@ namespace Electro
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
+		m_Context->SwapBuffers();
 
-	}
-
-	void WindowsWindow::SwapBuffers()
-	{
-		glfwSwapBuffers(m_Window);
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)

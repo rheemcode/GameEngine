@@ -150,6 +150,8 @@
     <ClInclude Include="src\Electro\Core\OS\KeyCode.h" />
     <ClInclude Include="src\Electro\Core\OS\Mouse.h" />
     <ClInclude Include="src\Electro\Core\OS\Window.h" />
+    <ClInclude Include="src\Electro\Drivers\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Electro\Drivers\OpenGL\OpenGLRenderer.h" />
     <ClInclude Include="src\Electro\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Electro\Events\Event.h" />
     <ClInclude Include="src\Electro\Events\KeyEvent.h" />
@@ -158,20 +160,26 @@
     <ClInclude Include="src\Electro\Log.h" />
     <ClInclude Include="src\Electro\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Electro\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Electro\Servers\Renderer\Renderer.h" />
     <ClInclude Include="src\elpch.h" />
+    <ClInclude Include="src\Electro\Platform\Windows\WindowsOpenGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Electro\Core\Application.cpp" />
     <ClCompile Include="src\Electro\Core\Layer.cpp" />
     <ClCompile Include="src\Electro\Core\LayerStack.cpp" />
     <ClCompile Include="src\Electro\Core\Log.cpp" />
+    <ClCompile Include="src\Electro\Drivers\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Electro\Drivers\OpenGL\OpenGLRenderer.cpp" />
     <ClCompile Include="src\Electro\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Electro\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Electro\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Electro\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Electro\Servers\Renderer\Renderer.cpp" />
     <ClCompile Include="src\elpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Electro\Platform\Windows\WindowsOpenGLContext.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
