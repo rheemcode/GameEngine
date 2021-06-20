@@ -8,7 +8,7 @@ struct Vector2
 	Vector2() :x(0), y(0) {};
 	Vector2(float p_x, float p_y) : x(p_x), y(p_y) {}
 	Vector2(const Vector2& p_vec) : x(p_vec.x), y(p_vec.y) {}
-	Vector2(const class Vector3& p_vec);
+	Vector2(const Vector3& p_vec);
 
 	static Vector2 Normalize(const Vector2& p_vec);
 	static Vector2 Abs(Vector2& p_vec);
@@ -41,9 +41,11 @@ struct Vector2
 	inline void operator+=(const Vector2& p_v);
 	inline Vector2 operator-(const Vector2& p_v) const;
 	inline void operator-=(const Vector2& p_v);
-	inline Vector2 operator*(const Vector2& p_v1) const;
-	inline Vector2 operator*(const float& rvalue) const;
 	inline void operator*=(const float& rvalue);
+	friend inline Vector2 operator*(float p_scalar, const Vector2& p_vec);
+	friend inline Vector2 operator*(double p_scalar, const Vector2& p_vec);
+	friend inline Vector2 operator*(int p_scalar, const Vector2& p_vec);
+	friend inline Vector2 operator*(const Vector2& p_vec, const Vector2& p_vecB);
 	inline void operator*=(const Vector2& rvalue) { *this = *this * rvalue; }
 	inline Vector2 operator/(const Vector2& p_v1) const;
 	inline Vector2 operator/(const float& rvalue) const;

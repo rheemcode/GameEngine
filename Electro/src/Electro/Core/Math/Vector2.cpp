@@ -19,6 +19,11 @@ float Vector2::LengthSq(const Vector2& p_vec)
 	return Vector2::Dot(p_vec, p_vec);
 }
 
+Vector2::Vector2(const Vector3& p_vec)
+{
+	x = p_vec.x; y = p_vec.y;
+}
+
 Vector2 Vector2::Normalize(const Vector2& p_vec)
 {
 	float length = LengthSq(p_vec);
@@ -131,7 +136,7 @@ Vector2 Vector2::Slerp(const Vector2& p_vecA, const Vector2& p_vecB, const float
 }
 
 Vector2 Vector2::Sign(const Vector2& p_vec)  {
-	return Vector2(Math::Sign(p_vec.x), Math::Sign(p_vec.y));
+	return Vector2(float(Math::Sign(p_vec.x)), float(Math::Sign(p_vec.y)));
 }
 
 Vector2 Vector2::Floor(const Vector2& p_vec)  {
@@ -148,29 +153,21 @@ Vector2 Vector2::Round(const Vector2& p_vec) {
 
 
 inline Vector2 operator*(float p_scalar, const Vector2& p_vec) {
-	return p_vec * p_scalar;
+	return Vector2(p_vec.x * p_scalar, p_vec.x * p_scalar);
 }
 
 inline Vector2 operator*(double p_scalar, const Vector2& p_vec) {
-	return p_vec * p_scalar;
+	return Vector2(float(p_vec.x * p_scalar), float(p_vec.x * p_scalar));
 }
 
-inline Vector2 operator*(int32_t p_scalar, const Vector2& p_vec) {
-	return p_vec * p_scalar;
+inline Vector2 operator*(int p_scalar, const Vector2& p_vec) {
+	return Vector2(float(p_vec.x * p_scalar), float(p_vec.x * p_scalar));
 }
 
-inline Vector2 operator*(int64_t p_scalar, const Vector2& p_vec) {
-	return p_vec * p_scalar;
+inline Vector2 operator*(const Vector2& p_vec, const Vector2& p_vecB)
+{
+	return Vector2(p_vec.x * p_vecB.x, p_vec.y * p_vecB.y);
 }
-
-inline Vector2 Vector2::operator*(const Vector2& p_v1) const {
-	return Vector2(x * p_v1.x, y * p_v1.y);
-}
-
-inline Vector2 Vector2::operator*(const float& rvalue) const {
-	return Vector2(x * rvalue, y * rvalue);
-}
-
 
 inline Vector2 Vector2::operator=(const Vector2& p_vec)
 {

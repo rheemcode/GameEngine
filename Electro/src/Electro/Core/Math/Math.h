@@ -1,6 +1,8 @@
 #pragma once
 #include <math.h>
 #include <cstdint>
+#include "fdecl.h"
+
 namespace Math
 {
 	#define EPSILON 0.00001
@@ -14,114 +16,79 @@ namespace Math
 	#define Math_INF INFINITY
 	#define Math_NAN NAN
 	
-	double Sin(double p_x) { return sin(p_x); }
-	float Sin(float p_x) { return sinf(p_x); }
-
-	double Cos(double p_x) { return cos(p_x); }
-	float Cos(float p_x) { return cosf(p_x); }
-
-	double Tan(double p_x) { return tan(p_x); }
-	float Tan(float p_x) { return tanf(p_x); }
-
-	double ASin(double p_x) { return asin(p_x); }
-	float ASin(float p_x) { return asinf(p_x); }
-
-	double ACos(double p_x) { return acos(p_x); }
-	float ACos(float p_x) { return acosf(p_x); }
-
-	double ATan(double p_x) { return atan(p_x); }
-	float ATan(float p_x) { return atanf(p_x); }
-
-	double ATan2(double p_y, double p_x) { return atan2(p_y, p_x); }
-	float ATan2(float p_y, float p_x) { return atan2f(p_y, p_x); }
-
-	double Sin(double p_x) { return sin(p_x); }
-	float Sin(float p_x) { return sinf(p_x); }
-
-	double SinH(double p_x) { return sinh(p_x); }
-	float SinH(float p_x) { return sinhf(p_x); }
+	Vector3 Cos(const Vector3& p_vec);
+	Vector3 Sin(const Vector3& p_vec);
 	
-	double CosH(double p_x) { return cosh(p_x); }
-	float CosH(float p_x) { return coshf(p_x); }
-	
-	double TanH(double p_x) { return tanh(p_x); }
-	float TanH(float p_x) { return tanhf(p_x); }
+	template<typename T>
+	static T Cos(T p_x) { return T(cos(p_x)); }
+	template<typename T>
+	static T Tan(T p_x) { return T(tan(p_x)); }
+	template<typename T>
+	static T ASin(T p_x) { return T(asin(p_x)); }
+	template<typename T>
+	static T ACos(T p_x) { return T(acos(p_x)); }
+	template<typename T>
+	static T ATan(T p_x) { return T(atan(p_x)); }
+	template<typename T>
+	static T ATan2(T p_y, T p_x) { return T(atan2(p_y, p_x)); }
+	template<typename T>
+	static T Sin(T p_x) { return T(sin(p_x)); }
+	template<typename T>
+	static T SinH(T p_x) { return T(sinh(p_x)); }
+	template<typename T>
+	static T CosH(T p_x) { return T(cosh(p_x)); }
+	template<typename T>
+	static T TanH(T p_x) { return T(tanh(p_x)); }
+	template<typename T>
+	static T Sqrt(T p_x) { return T(sqrt(p_x)); }
+	template<typename T>
+	static T RSqrt(T p_x) { return T(1) / T(sqrt(p_x)); }
+	template<typename T>
+	static T FMod(T p_x, T p_y) { return T(fmod(p_x, p_y)); }
+	template<typename T>
+	static T Floor(T p_x) { return T(floor(p_x)); }
+	template<typename T>
+	static T Ceil(T p_x) { return T(ceil(p_x)); }
+	template<typename T>
+	static T Pow(T p_x, T p_y) { return T(pow(p_x, p_y)); }
+	template<typename T>
+	static T Log(T p_x) { return T(log(p_x)); }
+	template<typename T>
+	static T Log2(T p_x) { return T(log2(p_x)); }
+	template<typename T>
+	static T Exp(T p_x) { return T(exp(p_x)); }
+	template<typename T>
+	static T Abs(T g) { return T(abs(g)); }
+	template<typename T>
+	static T Sign(T p_val)
+	{
+		if (signbit(p_val)) return T(-1);
+		return T(1);
 
-	double Sqrt(double p_x) { return sqrt(p_x); }
-	float Sqrt(float p_x) { return sqrtf(p_x); }
-
-	double RSqrt(double p_x) { return 1 / sqrt(p_x); }
-	float RSqrt(float p_x) { return 1 / sqrtf(p_x); }
-
-	double FMod(double p_x, double p_y) { return fmod(p_x, p_y); }
-	float FMod(float p_x, float p_y) { return fmodf(p_x, p_y); }
-
-	 double Floor(double p_x) { return floor(p_x); }
-	 float Floor(float p_x) { return floorf(p_x); }
-
-	 double Ceil(double p_x) { return ceil(p_x); }
-	 float Ceil(float p_x) { return ceilf(p_x); }
-
-	 double Pow(double p_x, double p_y) { return pow(p_x, p_y); }
-	 float Pow(float p_x, float p_y) { return powf(p_x, p_y); }
-
-	 double Log(double p_x) { return log(p_x); }
-	 float Logf(float p_x) { return logf(p_x); }
-
-	 double Log2(double p_x) { return log2(p_x); }
-	 float Log2(float p_x) { return log2f(p_x); }
-
-	 double Ex(double p_x) { return exp(p_x); }
-	 float Expf(float p_x) { return expf(p_x); }
-
-	 double Abs(double g) { return abs(g); }
-	 float Abs(float g) { return abs(g); }
-	 int Abs(int g) { return g > 0 ? g : -g; }
-
-	 int Sign(float p_val)
+	}
+	template<typename T>
+	static T FPosMod(T p_x, T p_y) 
 	 {
-		 if (signbit(p_val)) return -1;
-		 return 1;
-	 }
-
-	 double FPosMod(double p_x, double p_y) 
-	 {
-		double value = FMod(p_x, p_y);
+		T value = FMod(p_x, p_y);
 		if ((value < 0 && p_y > 0) || (value > 0 && p_y < 0)) {
 			value += p_y;
 		}
 		value += 0.0;
 		return value;
 	}
-	 float  FPosMod(float p_x, float p_y)
+	
+	template<typename T>
+	static T FPosModp(T p_x, T p_y)
 	 {
-		float value = FMod(p_x, p_y);
-		if ((value < 0 && p_y > 0) || (value > 0 && p_y < 0)) {
-			value += p_y;
-		}
-		value += 0.0;
-		return value;
-	}
-	 float FPosModp(float p_x, float p_y)
-	 {
-		float value = FMod(p_x, p_y);
+		T value = FMod(p_x, p_y);
 		if (value < 0) {
 			value += p_y;
 		}
 		value += 0.0;
 		return value;
 	}
-	 double FPosModp(double p_x, double p_y) 
-	 {
-		double value = FMod(p_x, p_y);
-		if (value < 0) {
-			value += p_y;
-		}
-		value += 0.0;
-		return value;
-	}
-
-	 int64_t PosMod(int64_t p_x, int64_t p_y) 
+	 
+	 static int64_t PosMod(int64_t p_x, int64_t p_y) 
 	 {
 		int64_t value = p_x % p_y;
 		if ((value < 0 && p_y > 0) || (value > 0 && p_y < 0)) {
@@ -130,34 +97,27 @@ namespace Math
 		return value;
 	}
 
-	 double Deg2Rad(double p_y) { return p_y * (PI / 180.0); }
-	 float Deg2rad(float p_y) { return p_y * (PI / 180.0); }
-
-	 double Rad2deg(double p_y) { return p_y * (180.0 / PI); }
-	 float Rad2deg(float p_y) { return p_y * (180.0 / PI); }
-
-	 double Lerp(double p_from, double p_to, double p_t) { return p_from + (p_to - p_from) * p_t; }
-	 float Lerp(float p_from, float p_to, float p_t) { return ( 1.f - p_t ) * p_from + p_t * p_to; }
-
-	 double LerpAngle(double p_from, double p_to, double p_weight) {
-		double difference = fmod(p_to - p_from, TAU);
-		double distance = fmod(2.0 * difference, TAU) - difference;
+	template<typename T>
+	static T Deg2Rad(T p_y) { return T(p_y * (PI / 180.0)); }
+	template<typename T>
+	static T Rad2deg(T p_y) { return T(p_y * (180.0 / PI)); }
+	template<typename T>
+	static T Lerp(T p_from, T p_to, T p_t) { return p_from + (p_to - p_from) * p_t; }
+	//static float Lerp(float p_from, float p_to, float p_t) { return ( 1.f - p_t ) * p_from + p_t * p_to; }
+	template<typename T>
+	static T LerpAngle(T p_from, T p_to, T p_weight) {
+		T difference = T(fmod(p_to - p_from, TAU));
+		T distance = T(fmod(2.0 * difference, TAU) - difference);
 		return p_from + distance * p_weight;
 	}
 	 
-	float LerpAngle(float p_from, float p_to, float p_weight) {
-		float difference = FMod(p_to - p_from, (float)TAU);
-		float distance = FMod(2.0f * difference, (float)TAU) - difference;
-		return p_from + distance * p_weight;
-	}
+	static  double InverseLerp(double p_from, double p_to, double p_value) { return (p_value - p_from) / (p_to - p_from); }
+	static  float InverseLerp(float p_from, float p_to, float p_value) { return (p_value - p_from) / (p_to - p_from); }
 
-	 double InverseLerp(double p_from, double p_to, double p_value) { return (p_value - p_from) / (p_to - p_from); }
-	 float InverseLerp(float p_from, float p_to, float p_value) { return (p_value - p_from) / (p_to - p_from); }
+	static  double RangeLerp(double p_value, double p_istart, double p_istop, double p_ostart, double p_ostop) { return Lerp(p_ostart, p_ostop, InverseLerp(p_istart, p_istop, p_value)); }
+	static  float RangeLerp(float p_value, float p_istart, float p_istop, float p_ostart, float p_ostop) { return Lerp(p_ostart, p_ostop,  InverseLerp(p_istart, p_istop, p_value)); }
 
-	 double RangeLerp(double p_value, double p_istart, double p_istop, double p_ostart, double p_ostop) { return Lerp(p_ostart, p_ostop, InverseLerp(p_istart, p_istop, p_value)); }
-	 float RangeLerp(float p_value, float p_istart, float p_istop, float p_ostart, float p_ostop) { return Lerp(p_ostart, p_ostop,  InverseLerp(p_istart, p_istop, p_value)); }
-
-	 float MoveTowards(float p_current, float p_target, float p_maxdelta)
+	static  float MoveTowards(float p_current, float p_target, float p_maxdelta)
 	 {
 		 if (Abs(p_target - p_current) <= p_maxdelta)
 			 return p_target;
@@ -166,12 +126,12 @@ namespace Math
 	 }
 
 
-	 double Round(double p_val) { return (p_val >= 0) ? Floor(p_val + 0.5) : -Floor(-p_val + 0.5); }
-	 float Round(float p_val) { return (p_val >= 0) ? Floor(p_val + 0.5) : -Floor(-p_val + 0.5); }
+	static  double Round(double p_val) { return (p_val >= 0) ? Floor(p_val + 0.5) : -Floor(-p_val + 0.5); }
+	static  float Round(float p_val) { return (p_val >= 0.f) ? Floor(p_val + 0.5f) : -Floor(-p_val + 0.5f); }
 
 
 
-	 float Clamp(float p_val, float p_min, float p_max)
+	static  float Clamp(float p_val, float p_min, float p_max)
 	 {
 		 if (p_val < p_min)
 			 p_val = p_min;
@@ -180,22 +140,22 @@ namespace Math
 			 return p_val;
 	 }
 
-	 float ClampInt(int p_val, int p_min, int p_max)
+	static  float ClampInt(int p_val, int p_min, int p_max)
 	 {
 		 if (p_val < p_min)
 			 p_val = p_min;
 		 if (p_val > p_max)
 			 p_val = p_max;
-		 return p_val;
+		 return float(p_val);
 	 }
 
-	float ClampNeg1to1(float value) {
+	static float ClampNeg1to1(float value) {
 		 if (value < -1.f) value = -1.f;
 		 if (value > 1.f) value = 1.f;
-		 return value;
+		 return float(value);
 	 }
 
-	 uint32_t HalfbitsToFloatbits(uint16_t h) {
+	static  uint32_t HalfbitsToFloatbits(uint16_t h) {
 		uint16_t h_exp, h_sig;
 		uint32_t f_sgn, f_exp, f_sig;
 
@@ -226,7 +186,7 @@ namespace Math
 		}
 	}
 
-	 float HalfPtrToFloat(const uint16_t* h) {
+	static  float HalfPtrToFloat(const uint16_t* h) {
 		union {
 			uint32_t u32;
 			float f32;
@@ -236,11 +196,11 @@ namespace Math
 		return u.f32;
 	}
 
-	 float HalfToFloat(const uint16_t h) {
+	 static float HalfToFloat(const uint16_t h) {
 		return HalfPtrToFloat(&h);
 	}
 
-	 uint16_t MakeHalfFloat(float f) {
+	static  uint16_t MakeHalfFloat(float f) {
 		union {
 			float fv;
 			uint32_t ui;

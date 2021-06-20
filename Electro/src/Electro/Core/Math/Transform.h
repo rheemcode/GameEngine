@@ -11,8 +11,6 @@ public:
 	Transform(const Vector3& p_x, const class Vector3& p_y, const class Vector3& p_z, const class Vector3& p_position);
 	Transform(float xx, float xy, float xz, float yx, float yy, float yz, float zx, float zy, float zz, float ox, float oy, float oz);
 
-
-
     Vector3 InverseTransformDirection(const Vector3& direction);
     Vector3 InverseTransformDirection(float x, float y, float z);
     Vector3 InverseTransformPoint(float x, float y, float z);
@@ -47,15 +45,18 @@ public:
     void SetRotation(const Quaternion& p_rotation);
     void SetLocalRotation(const Quaternion& p_rotation);
 
-    void GetPosition() const;
-    void GetScale() const;
-    void GetLocalScale() const;
-    void GetLocalPosition() const;
-    void GetEulerAngles() const;
-    void GetLocalEulerAngle() const;
-    void GetRotation() const;
-    void GetLocalRotation) const;
-         G
+    Vector3 GetPosition() const;
+    Vector3 GetScale() const;
+    Vector3 GetLocalScale() const;
+    Vector3 GetLocalPosition() const;
+    Vector3 GetEulerAngles() const;
+    Vector3 GetLocalEulerAngle() const;
+    Vector3 GetUpAxis() const;
+    Vector3 GetRightAxis() const;
+    Vector3 GetForwardAxis() const;
+    const Quaternion GetRotation() const;
+    const Quaternion GetLocalRotation() const;
+    const Transform* GetParent() const;
 
 
 

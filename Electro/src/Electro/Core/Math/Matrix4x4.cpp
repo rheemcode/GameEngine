@@ -4,14 +4,22 @@
 #include "Math/Math.h"
 #include "Math/Vector3.h"
 #include "Matrix4x4.h"
-#include <emmintrin.h>
-
+#include "Matrix3x3.h"
+#include "Quaternion.h"
 
 const Matrix4x4 Matrix4x4::Identity = Matrix4x4(1.f, 0.f, 0.f, 0.f,
 	0.f, 1.f, 0.f, 0.f,
 	0.f, 0.f, 1.f, 0.f,
 	0.f, 0.f, 0.f, 1.f);
 
+
+Matrix4x4::Matrix4x4(const Matrix3x3& p_mat)
+{
+	this->m_data[0] = SimpleVec4(p_mat[0], 0.f);
+	this->m_data[1] = SimpleVec4(p_mat[1], 0.f);
+	this->m_data[2] = SimpleVec4(p_mat[2], 0.f);
+	this->m_data[3] = SimpleVec4(0.f, 0.f, 0.f, 0.f);
+}
 Matrix4x4::Matrix4x4()
 {
 	*this = Matrix4x4(1.f, 0.f, 0.f, 0.f,
@@ -53,22 +61,22 @@ Matrix4x4::Matrix4x4(const float& s)
 
 }
 
-colType Matrix4x4::operator[](const int& p_index) const 
+SimpleVec4 Matrix4x4::operator[](const int& p_index) const 
 {
 	return m_data[p_index];
 }
 
 Matrix4x4 operator*(const Matrix4x4& p_mat, const Matrix4x4& p_mat2)
 {
-	const colType SrcA0 = p_mat[0];
-	const colType SrcA1 = p_mat[1];
-	const colType SrcA2 = p_mat[2];
-	const colType SrcA3 = p_mat[3];
+	const SimpleVec4 SrcA0 = p_mat[0];
+	const SimpleVec4 SrcA1 = p_mat[1];
+	const SimpleVec4 SrcA2 = p_mat[2];
+	const SimpleVec4 SrcA3 = p_mat[3];
 
-	const colType SrcB0 = p_mat[0];
-	const colType SrcB1 = p_mat2[1];
-	const colType SrcB2 = p_mat2[2];
-	const colType SrcB3 = p_mat2[3];
+	const SimpleVec4 SrcB0 = p_mat[0];
+	const SimpleVec4 SrcB1 = p_mat2[1];
+	const SimpleVec4 SrcB2 = p_mat2[2];
+	const SimpleVec4 SrcB3 = p_mat2[3];
 
 	Matrix4x4 res(0);
 	res[0] = SrcA0 * SrcB0[0] + SrcA1 * SrcB0[1] + SrcA2 * SrcB0[2] + SrcA3 * SrcB0[3];
@@ -138,30 +146,30 @@ Matrix4x4 Matrix4x4::Inverse(const Matrix4x4& m)
 	float Coef22 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
 	float Coef23 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
 
-	colType Fac0(Coef00, Coef00, Coef02, Coef03);
-	colType Fac1(Coef04, Coef04, Coef06, Coef07);
-	colType Fac2(Coef08, Coef08, Coef10, Coef11);
-	colType Fac3(Coef12, Coef12, Coef14, Coef15);
-	colType Fac4(Coef16, Coef16, Coef18, Coef19);
-	colType Fac5(Coef20, Coef20, Coef22, Coef23);
+	SimpleVec4 Fac0(Coef00, Coef00, Coef02, Coef03);
+	SimpleVec4 Fac1(Coef04, Coef04, Coef06, Coef07);
+	SimpleVec4 Fac2(Coef08, Coef08, Coef10, Coef11);
+	SimpleVec4 Fac3(Coef12, Coef12, Coef14, Coef15);
+	SimpleVec4 Fac4(Coef16, Coef16, Coef18, Coef19);
+	SimpleVec4 Fac5(Coef20, Coef20, Coef22, Coef23);
 
-	colType Vec0(m[1][0], m[0][0], m[0][0], m[0][0]);
-	colType Vec1(m[1][1], m[0][1], m[0][1], m[0][1]);
-	colType Vec2(m[1][2], m[0][2], m[0][2], m[0][2]);
-	colType Vec3(m[1][3], m[0][3], m[0][3], m[0][3]);
+	SimpleVec4 Vec0(m[1][0], m[0][0], m[0][0], m[0][0]);
+	SimpleVec4 Vec1(m[1][1], m[0][1], m[0][1], m[0][1]);
+	SimpleVec4 Vec2(m[1][2], m[0][2], m[0][2], m[0][2]);
+	SimpleVec4 Vec3(m[1][3], m[0][3], m[0][3], m[0][3]);
 
-	colType Inv0(Vec1 * Fac0 - Vec2 * Fac1 + Vec3 * Fac2);
-	colType Inv1(Vec0 * Fac0 - Vec2 * Fac3 + Vec3 * Fac4);
-	colType Inv2(Vec0 * Fac1 - Vec1 * Fac3 + Vec3 * Fac5);
-	colType Inv3(Vec0 * Fac2 - Vec1 * Fac4 + Vec2 * Fac5);
+	SimpleVec4 Inv0(Vec1 * Fac0 - Vec2 * Fac1 + Vec3 * Fac2);
+	SimpleVec4 Inv1(Vec0 * Fac0 - Vec2 * Fac3 + Vec3 * Fac4);
+	SimpleVec4 Inv2(Vec0 * Fac1 - Vec1 * Fac3 + Vec3 * Fac5);
+	SimpleVec4 Inv3(Vec0 * Fac2 - Vec1 * Fac4 + Vec2 * Fac5);
 
-	colType SignA(+1, -1, +1, -1);
-	colType SignB(-1, +1, -1, +1);
+	SimpleVec4 SignA(+1, -1, +1, -1);
+	SimpleVec4 SignB(-1, +1, -1, +1);
 	Matrix4x4 Inverse(Inv0 * SignA, Inv1 * SignB, Inv2 * SignA, Inv3 * SignB);
 
-	colType Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
+	SimpleVec4 Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
 
-	colType Dot0(m[0] * Row0);
+	SimpleVec4 Dot0(m[0] * Row0);
 	float Dot1 = (Dot0.x + Dot0.y) + (Dot0.z + Dot0.w);
 
 	float OneOverDeterminant = 1.f / Dot1;
@@ -222,7 +230,7 @@ Matrix4x4 Matrix4x4::CreateFrustum(const float& left, const float& right, const 
 
 Matrix4x4 Matrix4x4::CreatePerspective(const float& p_fovy, const float& p_aspectRatio, const float& p_zNear, const float& p_zFar)
 {
-   Math::Abs(p_aspectRatio - static_cast<float>(EPSILON)) > 0.f;
+   assert(Math::Abs(p_aspectRatio - static_cast<float>(EPSILON)) > 0.f);
 
 	const float tanHalfFovy = tan(p_fovy / 2.f);
 
@@ -244,7 +252,7 @@ float Matrix4x4::Determinant(const Matrix4x4& m)
 	float SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
 	float SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
 
-	colType DetCof(
+	SimpleVec4 DetCof(
 		+(m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
 		-(m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04),
 		+(m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),

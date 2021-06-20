@@ -140,6 +140,8 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Electro\Core\Math\fdecl.h" />
+    <ClInclude Include="src\Electro\Core\Math\Matrix3x3.h" />
     <ClInclude Include="src\Electro\Core\Math\Matrix4x4.h" />
     <ClInclude Include="src\Electro\Core\Math\Quaternion.h" />
     <ClInclude Include="src\Electro.h" />
@@ -149,6 +151,7 @@
     <ClInclude Include="src\Electro\Core\Layer.h" />
     <ClInclude Include="src\Electro\Core\LayerStack.h" />
     <ClInclude Include="src\Electro\Core\Math\Math.h" />
+    <ClInclude Include="src\Electro\Core\Math\SimpleVec.h" />
     <ClInclude Include="src\Electro\Core\Math\Vector2.h" />
     <ClInclude Include="src\Electro\Core\Math\Vector3.h" />
     <ClInclude Include="src\Electro\Core\OS\Input.h" />
@@ -168,15 +171,16 @@
     <ClInclude Include="src\Electro\Servers\Renderer\Renderer.h" />
     <ClInclude Include="src\elpch.h" />
     <ClInclude Include="src\Electro\Platform\Windows\WindowsOpenGLContext.h" />
-    <ClInclude Include="src\Electro\Core\Math\Transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Electro\Core\Math\Matrix3x3.cpp" />
     <ClCompile Include="src\Electro\Core\Math\Matrix4x4.cpp" />
     <ClCompile Include="src\Electro\Core\Math\Quaternion.cpp" />
     <ClCompile Include="src\Electro\Core\Application.cpp" />
     <ClCompile Include="src\Electro\Core\Layer.cpp" />
     <ClCompile Include="src\Electro\Core\LayerStack.cpp" />
     <ClCompile Include="src\Electro\Core\Log.cpp" />
+    <ClCompile Include="src\Electro\Core\Math\SimpleVec.cpp" />
     <ClCompile Include="src\Electro\Core\Math\Vector2.cpp" />
     <ClCompile Include="src\Electro\Core\Math\Vector3.cpp" />
     <ClCompile Include="src\Electro\Drivers\OpenGL\OpenGLContext.cpp" />
@@ -190,7 +194,6 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Electro\Platform\Windows\WindowsOpenGLContext.cpp" />
-    <ClCompile Include="src\Electro\Core\Math\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
