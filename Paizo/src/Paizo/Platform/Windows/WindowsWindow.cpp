@@ -1,4 +1,5 @@
-#include "elpch.h"
+#include "pzpch.h"
+#include "Drivers/OpenGL/OpenGLContext.h"
 #include "WindowsWindow.h"
 #include "Paizo/Log.h"
 #include "Events/ApplicationEvent.h"
@@ -12,22 +13,12 @@ namespace Paizo
 	
 	static void GLFWErrorCallback(int error, const char* description)
 	{
-		EL_CORE_ERROR("GLFW ERROR ({0}): {1}", error, description);
+		PAIZO_CORE_ERROR("GLFW ERROR ({0}): {1}", error, description);
 	}
 
 	Window* Window::Create(const WindowProps& props)
 	{
 		return new WindowsWindow(props);
-	}
-
-	WindowsWindow::WindowsWindow(const WindowProps& props)
-	{
-		Init(props);
-	}
-
-	WindowsWindow::~WindowsWindow() 
-	{
-		Shutdown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)
@@ -38,24 +29,22 @@ namespace Paizo
 
 		m_Context = new WindowsOpenGLContext();
 
-		EL_CORE_TRACE("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
-
+		PAIZO_CORE_TRACE("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 		if (!s_GLFWInitialized)
 		{
 			int success = glfwInit();
-			EL_CORE_ASSERT(success, "Could not Initialize GLFW!");	
-			glfwSetErrorCallback(GLFWErrorCallback);
+			PAIZO_CORE_ASSERT(success, "Could not Initialize GLFW!");
 			s_GLFWInitialized = true;
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		
-		m_Context->CreateContext(m_Window);
-		m_Context->Init();
 
+		m_Context->Init(m_Window);
+		glfwSwapInterval(1);
+		glfwSetErrorCallback(GLFWErrorCallback);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
-		SetVSync(true);
-		//glViewport(0, 0, props.Width, props.Height);
+		m_Context->SetUseVsync(true);
+		
 		// Set GLFW callbacks
 
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
@@ -106,7 +95,7 @@ namespace Paizo
 				}
 			});
 		
-		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
+		glfwSetMouseButtonCallback(static_cast<GLFWwindow*>(m_Window), [](GLFWwindow* window, int button, int action, int mods)
 		{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
@@ -156,8 +145,11 @@ namespace Paizo
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		m_Context->SwapBuffers();
+	}
 
+	void WindowsWindow::SwapBuffers()
+	{
+		static_cast<OpenGLContext*>(m_Context)->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)
@@ -174,4 +166,16 @@ namespace Paizo
 	{
 		return m_Data.VSync;
 	}
+
+	WindowsWindow::WindowsWindow(const WindowProps& props)
+	{
+		Init(props);
+	}
+
+	WindowsWindow::~WindowsWindow()
+	{
+		Shutdown();
+	}
+
+
 }

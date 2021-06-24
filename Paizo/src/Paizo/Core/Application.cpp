@@ -1,4 +1,4 @@
-#include "elpch.h"
+#include "pzpch.h"
 #include "Application.h"
 #include "Log.h"
 #include "glad/glad.h"
@@ -11,21 +11,6 @@ namespace Paizo
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
-
-	Application::Application()
-	{
-		EL_CORE_ASSERT(!s_Instance, "Application already exists");
-		s_Instance = this;
-		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_ImGuiLayer = new ImGuiLayer();
-		m_Window->SetEventCallbackFn(BIND_EVENT_FN(OnEvent));
-		PushOverlay(m_ImGuiLayer);
-	}
-
-	Application::~Application()
-	{
-		s_Instance = nullptr;
-	}
 
 	void Application::PushLayer(Layer* layer)
 	{
@@ -45,7 +30,7 @@ namespace Paizo
 		while (m_Running)
 		{
 			
-			glClearColor(1, 0, 1, 1);
+			glClearColor(.1f, .1f, .1f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 			m_Window->OnUpdate();
 			
@@ -58,6 +43,7 @@ namespace Paizo
 				layer->OnImGuiRender();
 
 			m_ImGuiLayer->End();
+			m_Window->SwapBuffers();
 		}
 	}
 
@@ -68,7 +54,7 @@ namespace Paizo
 		
 		dispatcher.Dispatch<WindowCloseEvent>(fn);
 		
-		EL_CORE_TRACE("{0}", e);
+		PAIZO_CORE_TRACE("{0}", e);
 
 	}
 	
@@ -76,8 +62,24 @@ namespace Paizo
 	{
 		m_Running = false;
 
-		EL_CORE_TRACE("Window Closed");
+		PAIZO_CORE_TRACE("Window Closed");
 		return true;
 	}
+
+	Application::Application()
+	{
+		PAIZO_CORE_ASSERT(!s_Instance, "Application already exists");
+		s_Instance = this;
+		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_ImGuiLayer = new ImGuiLayer();
+		m_Window->SetEventCallbackFn(BIND_EVENT_FN(OnEvent));
+		PushOverlay(m_ImGuiLayer);
+	}
+
+	Application::~Application()
+	{
+		s_Instance = nullptr;
+	}
+
 }
 

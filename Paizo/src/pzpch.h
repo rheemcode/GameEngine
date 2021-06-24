@@ -14,6 +14,6 @@
 
 #include "Paizo/Log.h"
 
-#ifdef EL_PLATFORM_WINDOWS
+#ifdef PAIZO_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

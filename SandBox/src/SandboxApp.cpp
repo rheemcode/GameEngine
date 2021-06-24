@@ -1,7 +1,7 @@
-#include <Electro.h>
+#include <Paizo.h>
 #include "imgui.h"
 
-class ExampleLayer : public Electro::Layer
+class ExampleLayer : public Paizo::Layer
 {
 public:
 	ExampleLayer()
@@ -14,18 +14,18 @@ public:
 	
 	void OnImGuiRender() override
 	{
-		ImGui::Begin("Im");
+		ImGui::Begin("ImGui");
 		ImGui::Text("Hello Wordl");
 		ImGui::End();
 	}
 
-	void OnEvent(Electro::Event& e) override
+	void OnEvent(Paizo::Event& e) override
 	{
 		//EL_TRACE("{0}", e);
 	}
 };
 
-class SandBox : public Electro::Application
+class SandBox : public Paizo::Application
 {
 public:
 	SandBox()
@@ -40,7 +40,7 @@ public:
 
 };
 
-Electro::Application* Electro::CreateApplication()
+Paizo::Application* Paizo::CreateApplication()
 {
 	return new SandBox();
 }

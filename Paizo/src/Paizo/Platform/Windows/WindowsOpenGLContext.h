@@ -7,12 +7,14 @@ namespace Paizo
 	{
 	public:
 		
-		virtual void CreateContext(void* windowHandle) override;
-		virtual void Init() override;
+		GLFWwindow* GetWindowHandle() { return m_WindowHandle; };
+		virtual void Init(GLFWwindow* p_WindowHandle) override;
 		virtual void SwapBuffers() override;
-	
+		virtual int GetWindowWidth() const override;
+		virtual int GetWindowHeight() const override;
+
 	private:
-		void* m_WindowHandle;
+		GLFWwindow* m_WindowHandle;
 	};
 }
 

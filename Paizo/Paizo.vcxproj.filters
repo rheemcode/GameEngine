@@ -34,15 +34,12 @@
     <Filter Include="Paizo\Rendering">
       <UniqueIdentifier>{551BE90F-C1A6-56D4-CAB7-D9C836C2B2D4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Paizo\Rendering\Buffers">
-      <UniqueIdentifier>{D15F1A07-3D97-629E-46A1-C6C1B2578997}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Paizo\Rendering\Renderer">
       <UniqueIdentifier>{9BEE64F1-8713-B471-B05E-99019CE2B28F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Electro.h" />
+    <ClInclude Include="src\Paizo.h" />
     <ClInclude Include="src\Paizo\Core\Application.h">
       <Filter>Paizo\Core</Filter>
     </ClInclude>
@@ -71,12 +68,6 @@
       <Filter>Paizo\Core\Math</Filter>
     </ClInclude>
     <ClInclude Include="src\Paizo\Core\Math\SimpleVec.h">
-      <Filter>Paizo\Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Paizo\Core\Math\Transform.h">
-      <Filter>Paizo\Core\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Paizo\Core\Math\Transform2D.h">
       <Filter>Paizo\Core\Math</Filter>
     </ClInclude>
     <ClInclude Include="src\Paizo\Core\Math\Vector2.h">
@@ -118,10 +109,10 @@
     <ClInclude Include="src\Paizo\Log.h">
       <Filter>Paizo</Filter>
     </ClInclude>
-    <ClInclude Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLContext.h">
-      <Filter>Paizo\Platform\Windows\Rendering\OpenGL</Filter>
+    <ClInclude Include="src\Paizo\Drivers\OpenGL\OpenGLContext.h">
+      <Filter>Paizo\Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLRenderer.h">
+    <ClInclude Include="src\Paizo\Drivers\OpenGL\OpenGLRenderer.h">
       <Filter>Paizo\Platform\Windows\Rendering\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Paizo\Platform\Windows\WindowsInput.h">
@@ -133,22 +124,15 @@
     <ClInclude Include="src\Paizo\Platform\Windows\WindowsWindow.h">
       <Filter>Paizo\Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\Paizo\Rendering\Buffer.h">
-      <Filter>Paizo\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Paizo\Rendering\Buffers\IndexBuffer.h">
-      <Filter>Paizo\Rendering\Buffers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Paizo\Rendering\Buffers\VertexArray.h">
-      <Filter>Paizo\Rendering\Buffers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Paizo\Rendering\Buffers\VertexBuffer.h">
-      <Filter>Paizo\Rendering\Buffers</Filter>
-    </ClInclude>
     <ClInclude Include="src\Paizo\Rendering\Renderer\Renderer.h">
       <Filter>Paizo\Rendering\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\elpch.h" />
+    <ClInclude Include="src\pzpch.h" />
+    <ClInclude Include="src\Paizo\Drivers\OpenGL\Shader\OpenGLShader.h" />
+    <ClInclude Include="src\Paizo\Drivers\OpenGL\VertexBuffer.h" />
+    <ClInclude Include="src\Paizo\Drivers\OpenGL\OpenGLIndexBuffer.h" />
+    <ClInclude Include="src\Paizo\Core\OS\OS.h" />
+    <ClInclude Include="src\Paizo\Platform\Windows\OS_Windows.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Paizo\Core\Application.cpp">
@@ -175,12 +159,6 @@
     <ClCompile Include="src\Paizo\Core\Math\SimpleVec.cpp">
       <Filter>Paizo\Core\Math</Filter>
     </ClCompile>
-    <ClCompile Include="src\Paizo\Core\Math\Transform.cpp">
-      <Filter>Paizo\Core\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Paizo\Core\Math\Transfrom2D.cpp">
-      <Filter>Paizo\Core\Math</Filter>
-    </ClCompile>
     <ClCompile Include="src\Paizo\Core\Math\Vector2.cpp">
       <Filter>Paizo\Core\Math</Filter>
     </ClCompile>
@@ -193,10 +171,10 @@
     <ClCompile Include="src\Paizo\ImGui\ImGuiLayer.cpp">
       <Filter>Paizo\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLContext.cpp">
-      <Filter>Paizo\Platform\Windows\Rendering\OpenGL</Filter>
+    <ClCompile Include="src\Paizo\Drivers\OpenGL\OpenGLContext.cpp">
+      <Filter>Paizo\Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLRenderer.cpp">
+    <ClCompile Include="src\Paizo\Drivers\OpenGL\OpenGLRenderer.cpp">
       <Filter>Paizo\Platform\Windows\Rendering\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Paizo\Platform\Windows\WindowsInput.cpp">
@@ -208,18 +186,12 @@
     <ClCompile Include="src\Paizo\Platform\Windows\WindowsWindow.cpp">
       <Filter>Paizo\Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Paizo\Rendering\Buffers\IndexBuffer.cpp">
-      <Filter>Paizo\Rendering\Buffers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Paizo\Rendering\Buffers\VertexBuffer.cpp">
-      <Filter>Paizo\Rendering\Buffers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Paizo\Rendering\Buffers\VertextArray.cpp">
-      <Filter>Paizo\Rendering\Buffers</Filter>
-    </ClCompile>
     <ClCompile Include="src\Paizo\Rendering\Renderer\Renderer.cpp">
       <Filter>Paizo\Rendering\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\elpch.cpp" />
+    <ClCompile Include="src\pzpch.cpp" />
+    <ClCompile Include="src\Paizo\Drivers\OpenGL\Shader\OpenGLShader.cpp" />
+    <ClCompile Include="src\Paizo\Platform\Windows\WindowsMain.h" />
+    <ClCompile Include="src\Paizo\Platform\Windows\OS_Windows.cpp" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,4 @@
 #pragma once
-
-class Quaternion;
-class Matrix4x4;
-
 class Transform
 {
 public:

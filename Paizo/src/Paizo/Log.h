@@ -1,6 +1,6 @@
 #pragma once
 
-#include "elpch.h"
+#include "pzpch.h"
 
 #include "Core/Core.h"
 #include "spdlog/spdlog.h"
@@ -27,12 +27,12 @@ namespace Paizo
 }
 
 
-#define EL_CORE_LOG(...)       ::Paizo::Log::GetCoreLogger()->log(__VA_ARGS__)
-#define EL_CORE_ERROR(...)     ::Paizo::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define EL_CORE_WARN(...)      ::Paizo::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define EL_CORE_INFO(...)      ::Paizo::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define EL_CORE_TRACE(...)     ::Paizo::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define EL_CORE_FATAL(...)     ::Paizo::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define PAIZO_CORE_LOG(...)       ::Paizo::Log::GetCoreLogger()->log(__VA_ARGS__)
+#define PAIZO_CORE_ERROR(...)     ::Paizo::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define PAIZO_CORE_WARN(...)      ::Paizo::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define PAIZO_CORE_INFO(...)      ::Paizo::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define PAIZO_CORE_TRACE(...)     ::Paizo::Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define PAIZO_CORE_FATAL(...)     ::Paizo::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 
 
 #define EL_LOG(...)            ::Paizo::Log::GetClientLogger()->log(__VA_ARGS__)

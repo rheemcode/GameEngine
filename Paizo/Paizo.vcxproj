@@ -140,7 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Electro.h" />
+    <ClInclude Include="src\Paizo.h" />
     <ClInclude Include="src\Paizo\Core\Application.h" />
     <ClInclude Include="src\Paizo\Core\Core.h" />
     <ClInclude Include="src\Paizo\Core\EntryPoint.h" />
@@ -151,14 +151,13 @@
     <ClInclude Include="src\Paizo\Core\Math\Matrix4x4.h" />
     <ClInclude Include="src\Paizo\Core\Math\Quaternion.h" />
     <ClInclude Include="src\Paizo\Core\Math\SimpleVec.h" />
-    <ClInclude Include="src\Paizo\Core\Math\Transform.h" />
-    <ClInclude Include="src\Paizo\Core\Math\Transform2D.h" />
     <ClInclude Include="src\Paizo\Core\Math\Vector2.h" />
     <ClInclude Include="src\Paizo\Core\Math\Vector3.h" />
     <ClInclude Include="src\Paizo\Core\Math\fdecl.h" />
     <ClInclude Include="src\Paizo\Core\OS\Input.h" />
     <ClInclude Include="src\Paizo\Core\OS\KeyCode.h" />
     <ClInclude Include="src\Paizo\Core\OS\Mouse.h" />
+    <ClInclude Include="src\Paizo\Core\OS\OS.h" />
     <ClInclude Include="src\Paizo\Core\OS\Window.h" />
     <ClInclude Include="src\Paizo\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Paizo\Events\Event.h" />
@@ -166,17 +165,17 @@
     <ClInclude Include="src\Paizo\Events\MouseEvent.h" />
     <ClInclude Include="src\Paizo\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Paizo\Log.h" />
-    <ClInclude Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLRenderer.h" />
+    <ClInclude Include="src\Paizo\Drivers\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Paizo\Drivers\OpenGL\OpenGLIndexBuffer.h" />
+    <ClInclude Include="src\Paizo\Drivers\OpenGL\OpenGLRenderer.h" />
+    <ClInclude Include="src\Paizo\Drivers\OpenGL\Shader\OpenGLShader.h" />
+    <ClInclude Include="src\Paizo\Drivers\OpenGL\VertexBuffer.h" />
+    <ClInclude Include="src\Paizo\Platform\Windows\OS_Windows.h" />
     <ClInclude Include="src\Paizo\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Paizo\Platform\Windows\WindowsOpenGLContext.h" />
     <ClInclude Include="src\Paizo\Platform\Windows\WindowsWindow.h" />
-    <ClInclude Include="src\Paizo\Rendering\Buffer.h" />
-    <ClInclude Include="src\Paizo\Rendering\Buffers\IndexBuffer.h" />
-    <ClInclude Include="src\Paizo\Rendering\Buffers\VertexArray.h" />
-    <ClInclude Include="src\Paizo\Rendering\Buffers\VertexBuffer.h" />
     <ClInclude Include="src\Paizo\Rendering\Renderer\Renderer.h" />
-    <ClInclude Include="src\elpch.h" />
+    <ClInclude Include="src\pzpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Paizo\Core\Application.cpp" />
@@ -187,22 +186,22 @@
     <ClCompile Include="src\Paizo\Core\Math\Matrix4x4.cpp" />
     <ClCompile Include="src\Paizo\Core\Math\Quaternion.cpp" />
     <ClCompile Include="src\Paizo\Core\Math\SimpleVec.cpp" />
-    <ClCompile Include="src\Paizo\Core\Math\Transform.cpp" />
-    <ClCompile Include="src\Paizo\Core\Math\Transfrom2D.cpp" />
     <ClCompile Include="src\Paizo\Core\Math\Vector2.cpp" />
     <ClCompile Include="src\Paizo\Core\Math\Vector3.cpp" />
     <ClCompile Include="src\Paizo\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Paizo\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLRenderer.cpp" />
+    <ClCompile Include="src\Paizo\Drivers\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Paizo\Drivers\OpenGL\OpenGLRenderer.cpp" />
+    <ClCompile Include="src\Paizo\Drivers\OpenGL\Shader\OpenGLShader.cpp" />
+    <ClCompile Include="src\Paizo\Platform\Windows\OS_Windows.cpp" />
+    <ClCompile Include="src\Paizo\Platform\Windows\WindowsMain.h" />
     <ClCompile Include="src\Paizo\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Paizo\Platform\Windows\WindowsOpenGLContext.cpp" />
     <ClCompile Include="src\Paizo\Platform\Windows\WindowsWindow.cpp" />
-    <ClCompile Include="src\Paizo\Rendering\Buffers\IndexBuffer.cpp" />
-    <ClCompile Include="src\Paizo\Rendering\Buffers\VertexBuffer.cpp" />
-    <ClCompile Include="src\Paizo\Rendering\Buffers\VertextArray.cpp" />
     <ClCompile Include="src\Paizo\Rendering\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\elpch.cpp" />
+    <ClCompile Include="src\pzpch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

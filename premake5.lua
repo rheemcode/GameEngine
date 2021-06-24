@@ -115,7 +115,7 @@ project "Sandbox"
 
 	links
 	{
-		"Electro"
+		"Paizo"
 	}
 
 	filter "system:windows"

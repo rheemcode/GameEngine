@@ -1,8 +1,7 @@
 #pragma once
-
+#include "Drivers./OpenGL/OpenGLContext.h"
 #include "Core/OS/Window.h"
-#include "Drivers/OpenGL/OpenGLContext.h"
-#include <GLFW/glfw3.h>
+
 
 namespace Paizo
 {
@@ -18,19 +17,19 @@ namespace Paizo
 		inline unsigned int GetHeight() const override { return m_Data.Height;  }
 
 		// Window Attributes
-		inline void SetEventCallbackFn(const EventCallbackFn& callback) override { m_Data.EventCallback = callback;  }
-		void SetVSync(bool enabled) override;
-		bool IsVSync() const override;
-
+		inline  void SetEventCallbackFn(const EventCallbackFn& callback) override { m_Data.EventCallback = callback;  }
+		virtual void SetVSync(bool enabled) override;
+		virtual bool IsVSync() const override;
+		virtual void SwapBuffers() override;
 		virtual void* GetNativeWindow() const  override { return m_Window; }
 
 	private:
-		virtual void Init(const WindowProps& props);
-		virtual void Shutdown();
+		void Init(const WindowProps& props);
+		void Shutdown();
 
 	private:
-		GLFWwindow* m_Window;
 		OpenGLContext* m_Context;
+		GLFWwindow* m_Window;
 
 		struct WindowData
 		{

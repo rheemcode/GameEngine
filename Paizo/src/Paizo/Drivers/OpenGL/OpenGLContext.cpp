@@ -1,5 +1,5 @@
-#include "elpch.h"
-#include "Drivers/OpenGL/OpenGLContext.h"
+#include "pzpch.h"
+#include "OpenGLContext.h"
 #include "Core.h"
 
 namespace Paizo
@@ -8,7 +8,7 @@ namespace Paizo
 
 	OpenGLContext::OpenGLContext()
 	{
-		EL_CORE_ASSERT(!s_Instance, "OpenGLContext already exists");
+		PAIZO_CORE_ASSERT(!s_Instance, "OpenGLContext already exists");
 		s_Instance = this;
 	}
 
