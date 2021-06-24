@@ -1,4 +1,4 @@
-workspace "GameEngine"
+workspace "Paizo Engine"
 	architecture("x64")
 
 
@@ -12,25 +12,26 @@ workspace "GameEngine"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "Electro/vendor/GLFW/include"
-IncludeDir["Glad"] = "Electro/vendor/Glad/include"
-IncludeDir["ImGui"] = "Electro/vendor/imgui"
+IncludeDir["GLFW"] = "Paizo/vendor/GLFW/include"
+IncludeDir["Glad"] = "Paizo/vendor/Glad/include"
+IncludeDir["ImGui"] = "Paizo/vendor/imgui"
 
-include "Electro/vendor/GLFW"
-include "Electro/vendor/Glad"
-include "Electro/vendor/imgui"
+include "Paizo/vendor/GLFW"
+include "Paizo/vendor/Glad"
+include "Paizo/vendor/imgui"
 
-project "Electro"
+project "Paizo"
 	
-	location "Electro"
-	kind "SharedLib"
+	location "Paizo"
+	kind "StaticLib"
 	language "C++"
-
+	cppdialect "C++17"
+	staticruntime "on"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	
-	pchheader "elpch.h"
-	pchsource "Electro/src/elpch.cpp"
+	pchheader "pzpch.h"
+	pchsource "Paizo/src/pzpch.cpp"
 
 	files
 	{
@@ -42,8 +43,8 @@ project "Electro"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/src/Electro",
-		"%{prj.name}/src/Electro/Core",
+		"%{prj.name}/src/Paizo",
+		"%{prj.name}/src/Paizo/Core",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
@@ -61,37 +62,30 @@ project "Electro"
 
 	filter "system:windows"
 
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 
 		defines
 		{
-			"EL_PLATFORM_WINDOWS",
-			"EL_BUILD_DLL",
+			"PAIZO_PLATFORM_WINDOWS",
+			"PAIZO_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{copy} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-		}
-
 	filter "configurations:Debug"
-		defines "EN_DEBUG"
-		buildoptions "/MDd"
+		defines "PAIZO_DEBUG"
+		runtime "Debug"
 		symbols "On"
 		
 
 	filter "configurations:Release"
-		defines "EL_RELEASE"
-		buildoptions "/MD"
+		defines "PAIZO_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
-		defines "EL_DIST"
-		buildoptions "/MD"
+		defines "PAIZO_DIST"
+		runtime "Release"
 		optimize "On"
 	
 
@@ -99,7 +93,8 @@ project "Sandbox"
 	location "SandBox"
 	kind "ConsoleApp"
 	language "C++"
-
+	cppdialect "C++17"
+	staticruntime "On"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
@@ -112,40 +107,37 @@ project "Sandbox"
 
 	includedirs
 	{
-		"Electro/vendor/spdlog/include",
-		"Electro/src"
+		"Paizo/vendor/spdlog/include",
+		"Paizo/vendor/imgui",
+		"Paizo/src",
+		"Paizo/src/Paizo"
 	}
 
 	links
 	{
-		"Electro"
+		"Paizo"
 	}
 
 	filter "system:windows"
 
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
 		{
-			"EL_PLATFORM_WINDOWS"
+			"PAIZO_PLATFORM_WINDOWS"
 		}
 
 	
 
 	filter "configurations:Debug"
-		defines "EL_DEBUG"
-		buildoptions "/MDd"
+		defines "PAIZO_DEBUG"
 		symbols "On"
 		
 
 	filter "configurations:Release"
-		defines "EL_RELEASE"
-		buildoptions "/MDd"
+		defines "PAIZO_RELEASE"
 		optimize "On"
 
 	filter "configurations:Dist"
-		defines "EL_DIST"
-		buildoptions "/MDd"
+		defines "PAIZO_DIST"
 		optimize "On"
