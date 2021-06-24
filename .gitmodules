@@ -1,12 +1,12 @@
-[submodule "Electro/vendor/spdlog"]
-	path = Electro/vendor/spdlog
+[submodule "Paizo/vendor/spdlog"]
+	path = Paizo/vendor/spdlog
 	url = https://github.com/gabime/spdlog
 
-[submodule "Electro/vendor/GLFW"]
-	path = Electro/vendor/GLFW
+[submodule "Paizo/vendor/GLFW"]
+	path = Paizo/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
 
 
-[submodule "Electro/vendor/imgui"]
-	path = Electro/vendor/imgui
+[submodule "Paizo/vendor/imgui"]
+	path = Paizo/vendor/imgui
 	url = https://github.com/TheCherno/imgui

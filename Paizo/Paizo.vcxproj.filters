@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Paizo">
+      <UniqueIdentifier>{08A8DD0D-74BC-05BF-3D3E-A91EA91102F0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\Core">
+      <UniqueIdentifier>{6011C938-4CC9-0A86-B5D0-E3E1A1A7A576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\Core\Math">
+      <UniqueIdentifier>{395289A9-A5DD-F66D-AEEE-79621AF9526E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\Core\OS">
+      <UniqueIdentifier>{D1E7B079-3DA8-2CB0-06E3-752D7262718C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\Events">
+      <UniqueIdentifier>{ECFA7494-D85D-0439-81E3-3CEF6D25D0BB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\ImGui">
+      <UniqueIdentifier>{32035652-9EB8-CE47-27AD-C81E9361C54B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\Platform">
+      <UniqueIdentifier>{5C6DBDA1-483B-B1A7-31CF-21CE1D3C8D0C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\Platform\Windows">
+      <UniqueIdentifier>{96B3A06D-82AD-C9BF-6B1A-60D057B32F2C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\Platform\Windows\Rendering">
+      <UniqueIdentifier>{6370A234-4FC1-8D76-7825-7C3864D520E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\Platform\Windows\Rendering\OpenGL">
+      <UniqueIdentifier>{376C5677-A3FB-1762-ACF7-F8791806536E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\Rendering">
+      <UniqueIdentifier>{551BE90F-C1A6-56D4-CAB7-D9C836C2B2D4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\Rendering\Buffers">
+      <UniqueIdentifier>{D15F1A07-3D97-629E-46A1-C6C1B2578997}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Paizo\Rendering\Renderer">
+      <UniqueIdentifier>{9BEE64F1-8713-B471-B05E-99019CE2B28F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Electro.h" />
+    <ClInclude Include="src\Paizo\Core\Application.h">
+      <Filter>Paizo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Core.h">
+      <Filter>Paizo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\EntryPoint.h">
+      <Filter>Paizo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Layer.h">
+      <Filter>Paizo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\LayerStack.h">
+      <Filter>Paizo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Math\Math.h">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Math\Matrix3x3.h">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Math\Matrix4x4.h">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Math\Quaternion.h">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Math\SimpleVec.h">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Math\Transform.h">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Math\Transform2D.h">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Math\Vector2.h">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Math\Vector3.h">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\Math\fdecl.h">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\OS\Input.h">
+      <Filter>Paizo\Core\OS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\OS\KeyCode.h">
+      <Filter>Paizo\Core\OS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\OS\Mouse.h">
+      <Filter>Paizo\Core\OS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Core\OS\Window.h">
+      <Filter>Paizo\Core\OS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Events\ApplicationEvent.h">
+      <Filter>Paizo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Events\Event.h">
+      <Filter>Paizo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Events\KeyEvent.h">
+      <Filter>Paizo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Events\MouseEvent.h">
+      <Filter>Paizo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\ImGui\ImGuiLayer.h">
+      <Filter>Paizo\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Log.h">
+      <Filter>Paizo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLContext.h">
+      <Filter>Paizo\Platform\Windows\Rendering\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLRenderer.h">
+      <Filter>Paizo\Platform\Windows\Rendering\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Platform\Windows\WindowsInput.h">
+      <Filter>Paizo\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Platform\Windows\WindowsOpenGLContext.h">
+      <Filter>Paizo\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Platform\Windows\WindowsWindow.h">
+      <Filter>Paizo\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Rendering\Buffer.h">
+      <Filter>Paizo\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Rendering\Buffers\IndexBuffer.h">
+      <Filter>Paizo\Rendering\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Rendering\Buffers\VertexArray.h">
+      <Filter>Paizo\Rendering\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Rendering\Buffers\VertexBuffer.h">
+      <Filter>Paizo\Rendering\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Paizo\Rendering\Renderer\Renderer.h">
+      <Filter>Paizo\Rendering\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\elpch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Paizo\Core\Application.cpp">
+      <Filter>Paizo\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Core\Layer.cpp">
+      <Filter>Paizo\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Core\LayerStack.cpp">
+      <Filter>Paizo\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Core\Log.cpp">
+      <Filter>Paizo\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Core\Math\Matrix3x3.cpp">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Core\Math\Matrix4x4.cpp">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Core\Math\Quaternion.cpp">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Core\Math\SimpleVec.cpp">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Core\Math\Transform.cpp">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Core\Math\Transfrom2D.cpp">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Core\Math\Vector2.cpp">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Core\Math\Vector3.cpp">
+      <Filter>Paizo\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\ImGui\ImGuiBuild.cpp">
+      <Filter>Paizo\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\ImGui\ImGuiLayer.cpp">
+      <Filter>Paizo\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLContext.cpp">
+      <Filter>Paizo\Platform\Windows\Rendering\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Platform\Windows\Rendering\OpenGL\OpenGLRenderer.cpp">
+      <Filter>Paizo\Platform\Windows\Rendering\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Platform\Windows\WindowsInput.cpp">
+      <Filter>Paizo\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Platform\Windows\WindowsOpenGLContext.cpp">
+      <Filter>Paizo\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Paizo\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Rendering\Buffers\IndexBuffer.cpp">
+      <Filter>Paizo\Rendering\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Rendering\Buffers\VertexBuffer.cpp">
+      <Filter>Paizo\Rendering\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Rendering\Buffers\VertextArray.cpp">
+      <Filter>Paizo\Rendering\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Paizo\Rendering\Renderer\Renderer.cpp">
+      <Filter>Paizo\Rendering\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\elpch.cpp" />
+  </ItemGroup>
+</Project>
