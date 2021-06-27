@@ -35,10 +35,10 @@ namespace Paizo
 #define PAIZO_CORE_FATAL(...)     ::Paizo::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 
 
-#define EL_LOG(...)            ::Paizo::Log::GetClientLogger()->log(__VA_ARGS__)
-#define EL_ERROR(...)          ::Paizo::Log::GetClientLogger()->error(__VA_ARGS__)
-#define EL_WARN(...)           ::Paizo::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define EL_INFO(...)		   ::Paizo::Log::GetClientLogger()->info(__VA_ARGS__)
-#define EL_TRACE(...)	       ::Paizo::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define EL_FATAL(...)		   ::Paizo::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define PAIZO_LOG(...)            ::Paizo::Log::GetClientLogger()->log(__VA_ARGS__)
+#define PAIZO_ERROR(...)          ::Paizo::Log::GetClientLogger()->error(__VA_ARGS__)
+#define PAIZO_WARN(...)           ::Paizo::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define PAIZO_INFO(...)				::Paizo::Log::GetClientLogger()->info(__VA_ARGS__)
+#define PAIZO_TRACE(...)	       ::Paizo::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define PAIZO_FATAL(...)		   ::Paizo::Log::GetClientLogger()->fatal(__VA_ARGS__)
 

@@ -154,11 +154,15 @@
     <ClInclude Include="src\Paizo\Core\Math\Vector2.h" />
     <ClInclude Include="src\Paizo\Core\Math\Vector3.h" />
     <ClInclude Include="src\Paizo\Core\Math\fdecl.h" />
+    <ClInclude Include="src\Paizo\Core\Object.h" />
     <ClInclude Include="src\Paizo\Core\OS\Input.h" />
     <ClInclude Include="src\Paizo\Core\OS\KeyCode.h" />
+    <ClInclude Include="src\Paizo\Core\OS\Memory.h" />
     <ClInclude Include="src\Paizo\Core\OS\Mouse.h" />
     <ClInclude Include="src\Paizo\Core\OS\OS.h" />
     <ClInclude Include="src\Paizo\Core\OS\Window.h" />
+    <ClInclude Include="src\Paizo\Core\Reference.h" />
+    <ClInclude Include="src\Paizo\Core\Templates\RefCount.h" />
     <ClInclude Include="src\Paizo\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Paizo\Events\Event.h" />
     <ClInclude Include="src\Paizo\Events\KeyEvent.h" />
@@ -188,6 +192,8 @@
     <ClCompile Include="src\Paizo\Core\Math\SimpleVec.cpp" />
     <ClCompile Include="src\Paizo\Core\Math\Vector2.cpp" />
     <ClCompile Include="src\Paizo\Core\Math\Vector3.cpp" />
+    <ClCompile Include="src\Paizo\Core\OS\Memory.cpp" />
+    <ClCompile Include="src\Paizo\Core\Reference.cpp" />
     <ClCompile Include="src\Paizo\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Paizo\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Paizo\Drivers\OpenGL\OpenGLContext.cpp" />

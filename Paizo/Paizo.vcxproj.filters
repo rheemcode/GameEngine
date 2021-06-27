@@ -133,6 +133,10 @@
     <ClInclude Include="src\Paizo\Drivers\OpenGL\OpenGLIndexBuffer.h" />
     <ClInclude Include="src\Paizo\Core\OS\OS.h" />
     <ClInclude Include="src\Paizo\Platform\Windows\OS_Windows.h" />
+    <ClInclude Include="src\Paizo\Core\Object.h" />
+    <ClInclude Include="src\Paizo\Core\Reference.h" />
+    <ClInclude Include="src\Paizo\Core\Templates\RefCount.h" />
+    <ClInclude Include="src\Paizo\Core\OS\Memory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Paizo\Core\Application.cpp">
@@ -193,5 +197,7 @@
     <ClCompile Include="src\Paizo\Drivers\OpenGL\Shader\OpenGLShader.cpp" />
     <ClCompile Include="src\Paizo\Platform\Windows\WindowsMain.h" />
     <ClCompile Include="src\Paizo\Platform\Windows\OS_Windows.cpp" />
+    <ClCompile Include="src\Paizo\Core\Reference.cpp" />
+    <ClCompile Include="src\Paizo\Core\OS\Memory.cpp" />
   </ItemGroup>
 </Project>

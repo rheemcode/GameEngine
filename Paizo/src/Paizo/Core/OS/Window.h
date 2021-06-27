@@ -23,9 +23,12 @@ namespace Paizo
 
 	};
 
+	typedef unsigned int WindowID;
+
 	// Implemented per Platform
 	class PAIZO_API Window
 	{
+		WindowID id;
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
 
